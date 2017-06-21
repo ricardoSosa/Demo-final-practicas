@@ -20,7 +20,7 @@ export const router: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'search', component: SearchComponent },
     { path: 'developers', component: ListComponent },
-    { path: 'developers/read', component: ReadComponent },
+    { path: 'developers/:id', component: ReadComponent },
     { path: 'Skills', component: SkillComponent },
 
     //{ path: 'developers/:id', component: DevelopersComponent },

@@ -1,0 +1,21 @@
+#editButton {
+	margin-bottom: -73px;
+}
+
+#saveButton {
+	margin-bottom: -73px;
+	display: inline-block;
+}
+
+#cancelButton {
+	margin-bottom: -73px;
+	display: inline-block;
+}
+
+#userImage {
+	margin-top: 10px;
+}
+
+#employeeName {
+	margin-top: 10px;
+}

@@ -25,6 +25,9 @@ import { SkillComponent } from './content/Skills/skill.component';
 import { LoginComponent } from './session/login/login.component';
 import { LogoutComponent } from './session/logout/logout.component';
 
+//Services
+import { EmployeeService } from 'app/services/employee.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +50,7 @@ import { LogoutComponent } from './session/logout/logout.component';
     NgbModule.forRoot(),
     routes
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

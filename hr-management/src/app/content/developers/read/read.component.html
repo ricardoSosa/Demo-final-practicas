@@ -10,29 +10,34 @@
 
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">ID: 10231230KLQ-000123</div>
+      <div class="panel-heading">ID: {{employee.id}}</div>
       <div class="panel-body">
 
         <div class="list-group">
 
           <a class="list-group-item">
-            <div class="col-xs-12 col-sm-1">
+            <div id="userImage" class="col-xs-12 col-sm-1">
               <img src="https://i1.wp.com/tr1.cbsistatic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png?ssl=1"
                  class="img-responsive img-circle" />
             </div>
-            <div class="col-xs-12 col-sm-9">
+            <div class="col-xs-12 col-sm-7">
 
               <div class="form-group">
                 <label>Name:</label>
-                <input type="text" class="form-control" value="{{Firstname}}">
+                <h3 id="employeeName" *ngIf="!editName">{{employee.name}}</h3>
+                <input *ngIf="editName" type="text" class="form-control" value="{{employee.name}}">
               </div>
 
            
               
 
             </div>
-            <div class="col-xs-12 col-sm-2">
-            <button class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span> Save </button>
+            <div class="col-xs-12 col-sm-4">
+              <button id="editButton" *ngIf="!editName" (click)="editUser()" class="btn btn-default"><span class="glyphicon glyphicon-wrench"></span> Edit </button>
+            
+              <button id="saveButton" *ngIf="editName" (click)="closeEditUser()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span> Save </button>
+
+              <button id="cancelButton" *ngIf="editName" (click)="closeEditUser()" class="btn btn-default">Cancel </button>
             </div>
             <div class="clearfix"></div>
           </a>
@@ -45,9 +50,11 @@
             <!-- Default panel contents -->
             <div class="panel-heading">Junior</div>
             <div class="panel-body">
-              <tag-input [(ngModel)]='JrItems' >
-                
-              </tag-input>
+              <ul>
+                <li *ngFor="let juniorSkill of employeeSkills.juniorSkills" >
+                <label>{{juniorSkill}}</label>
+                </li>
+              </ul>
             </div>
         </div>
     </div>

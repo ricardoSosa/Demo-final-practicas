@@ -11,7 +11,7 @@
       <div class="panel-body">
         <ul class="list-group">
           <li class="list-group-item">
-           <input type="Text" name="Search" class="form-control">
+           <input type="Text" name="Search" [(ngModel)]="filter" class="form-control" placeholder="Developer's name">
           </li>
         </ul>
       </div>
@@ -25,20 +25,16 @@
       <div class="panel-body">
 
         <div class="list-group">
-          <ul class="employees">
-            <li *ngFor="let employee of employees" >
-              <a routerLink="/developers/{{employee.id}}" class="list-group-item">
+              <a *ngFor="let employee of employees | generalFilter: filter" routerLink="/developers/{{employee.id}}" class="list-group-item">
                 <div class="col-xs-12 col-sm-3">
                   <img src="https://i1.wp.com/tr1.cbsistatic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png?ssl=1"
                      class="img-responsive img-circle" />
                 </div>
                 <div class="col-xs-12 col-sm-9">
-                    <h4 class="list-group-item-heading">{{employee.name}}</h4>
+                    <h3 id="employeeName" class="list-group-item-heading">{{employee.name}}</h3>
                 </div>
                 <div class="clearfix"></div>
               </a>
-            </li>
-          </ul>
               <!--
         <span class="name">Scott Stevens</span><br/>
         <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>

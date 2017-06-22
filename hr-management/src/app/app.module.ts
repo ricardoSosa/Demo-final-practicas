@@ -28,6 +28,9 @@ import { LogoutComponent } from './session/logout/logout.component';
 //Services
 import { EmployeeService } from 'app/services/employee.service';
 
+//Pipes
+import { GeneralFilter } from 'app/pipes/general-filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,8 @@ import { EmployeeService } from 'app/services/employee.service';
     ReadComponent,
     LoginComponent,
     LogoutComponent,
-    SkillComponent
+    SkillComponent,
+    GeneralFilter
   ],
   imports: [
     TagInputModule,

@@ -1,11 +1,10 @@
 <div class="page-header">
   <h1> Developers</h1>
+  <button id="back" (click)="goBack()" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-repeat"></span></button>
 </div>
-
 
 <div class="row">
 
-  
   <div class="col-md-12">
 
     <div class="panel panel-default">
@@ -55,7 +54,7 @@
                 <select>
                   <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
                 </select>
-                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
                 <br>
                 <br>               
@@ -80,7 +79,7 @@
                 <select>
                   <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
                 </select>
-                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
                 <br>
                 <br>               
@@ -105,7 +104,7 @@
                 <select>
                   <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
                 </select>
-                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
                 <br>
                 <br>               
@@ -130,7 +129,7 @@
                 <select>
                   <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
                 </select>
-                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
                 <br>
                 <br>               

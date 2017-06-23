@@ -19,6 +19,10 @@ export class DatabaseService {
     
     getEmployees(): Promise<Employee[]> {
         return Promise.resolve(EMPS);
+        //return this.http.get('http://localhost:54395/api/Employee/getList')
+         //       .toPromise()
+          //      .then(response => response.json() as Employee[])
+           //     .catch(this.handleError);
     }
 
     getEmployee(id: string): Promise<Employee> {

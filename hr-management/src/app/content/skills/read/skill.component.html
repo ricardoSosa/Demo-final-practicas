@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1> Skills</h1>
+  <button id="back" (click)="goBack()" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-repeat"></span></button>
 </div>
 
 
@@ -51,8 +52,8 @@
             <div class="panel-heading">Families</div>
             <div class="panel-body">
               <ul>
-                <li *ngFor="let juniorSkill of employeeSkills.juniorSkills" >
-                <label>{{juniorSkill}}</label><button *ngIf="removeSkillOption==1" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <li *ngFor="let family of skill.SkillGroups" >
+                <label>{{family.name}}</label>
                 </li>
               </ul>            
             </div>

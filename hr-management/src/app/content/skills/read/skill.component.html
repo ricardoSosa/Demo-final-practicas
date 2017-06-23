@@ -49,11 +49,23 @@
     <div id="families" class="col-md-6 col-md-offset-3">
         <div class="panel panel-info">
             <!-- Default panel contents -->
-            <div class="panel-heading">Families</div>
+            <div class="panel-heading">Families
+              <button (click)="activateRemoveFamilyOption()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+              <button (click)="activateAddFamilyOption()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
             <div class="panel-body">
+              <div *ngIf="addFamilyOption">
+                <select>
+                  <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
+                </select>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
+                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
+                <br>
+                <br>               
+              </div>
               <ul>
                 <li *ngFor="let family of skill.SkillGroups" >
-                <label>{{family.name}}</label>
+                <label>{{family.name}}</label><button *ngIf="removeFamilyOption" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
                 </li>
               </ul>            
             </div>

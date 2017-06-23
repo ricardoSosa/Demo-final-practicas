@@ -19,11 +19,11 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ReadComponent implements OnInit {
   employee: Employee;
-  employeeSkills: EmployeeSkills;
   skills: Skill[];
   editName: boolean = false;
   addSkillOption: number = 0;
   removeSkillOption: number = 0;
+  //selectedValue: string;
 
   constructor(
     private databaseService: DatabaseService,
@@ -35,9 +35,6 @@ export class ReadComponent implements OnInit {
     this.route.params
         .switchMap((params: Params) => this.databaseService.getEmployee(params['id']))
         .subscribe(employee => this.employee = employee);
-    this.route.params
-        .switchMap((params: Params) => this.databaseService.getEmployeeSkills(params['id']))
-        .subscribe(empSkills => this.employeeSkills = empSkills);
     this.databaseService.getSkills().then(skills => this.skills = skills);
   }
 
@@ -70,4 +67,8 @@ export class ReadComponent implements OnInit {
       this.removeSkillOption = option;
     }
   }
+
+  /*assignSkill(skillLevel: string): void {
+    this.databaseService.assignSkill(this.employee.name, this.selectedValue, skillLevel);
+  }*/
 }

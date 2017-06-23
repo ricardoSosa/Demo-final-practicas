@@ -12,7 +12,7 @@
           <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" placeholder="What skill do you want to look for?"/>
           <!--<input type="text" id="tags" class="form-control" placeholder="What skill do you want to look for?">-->
         </div>
-        <button id="searchButton" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span> Search</button>
+        <button id="searchButton" (click)="searchEmployees(model)" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span> Search</button>
       </div>
     </div>
   </div>
@@ -40,14 +40,14 @@
             </div>
             <div *ngIf="juniorOption" class="col-md-3">
               <div class="panel panel-danger">
-               <div class="panel-heading">Junior ({{skillEmployees.juniorEmployees.length}})<span class="pull-right">
+               <div class="panel-heading">Junior ({{skillEmployees.JrEmployees.length}})<span class="pull-right">
                <input type="text" name="searchJunior" [(ngModel)]="juniorFilter" placeholder="Search employee"></span>
                </div>
             
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let juniorEmployee of skillEmployees.juniorEmployees | generalFilter: juniorFilter" data-status="pagado">
+                      <tr *ngFor="let juniorEmployee of skillEmployees.JrEmployees | generalFilter: juniorFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -81,12 +81,12 @@
 
             <div *ngIf="intermediateOption" class="col-md-3">
               <div class="panel panel-warning">
-               <div class="panel-heading">Inter. ({{skillEmployees.intermediateEmployees.length}})<span class="pull-right"><input type="text" name="searchIntermediate" [(ngModel)]="intermediateFilter" placeholder="Search employee"></span></div>
+               <div class="panel-heading">Inter. ({{skillEmployees.IntEmployees.length}})<span class="pull-right"><input type="text" name="searchIntermediate" [(ngModel)]="intermediateFilter" placeholder="Search employee"></span></div>
             
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let intermediateEmployee of skillEmployees.intermediateEmployees | generalFilter: intermediateFilter" data-status="pagado">
+                      <tr *ngFor="let intermediateEmployee of skillEmployees.IntEmployees | generalFilter: intermediateFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -116,12 +116,12 @@
             </div> 
             <div *ngIf="seniorOption" class="col-md-3">
               <div class="panel panel-success">
-               <div class="panel-heading">Senior ({{skillEmployees.seniorEmployees.length}})<span class="pull-right"><input type="text" name="searchSenior" [(ngModel)]="seniorFilter" placeholder="Search employee"></span></div>
+               <div class="panel-heading">Senior ({{skillEmployees.SrEmployees.length}})<span class="pull-right"><input type="text" name="searchSenior" [(ngModel)]="seniorFilter" placeholder="Search employee"></span></div>
             
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let seniorEmployee of skillEmployees.seniorEmployees | generalFilter: seniorFilter" data-status="pagado">
+                      <tr *ngFor="let seniorEmployee of skillEmployees.SrEmployees | generalFilter: seniorFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -151,12 +151,12 @@
             </div> 
             <div *ngIf="leadOption" class="col-md-3">
               <div class="panel panel-info">
-               <div class="panel-heading">Lead ({{skillEmployees.leadEmployees.length}})<span class="pull-right"><input type="text" name="searchLead" [(ngModel)]="leadFilter" placeholder="Search employee"></span></div>
+               <div class="panel-heading">Lead ({{skillEmployees.LdEmployees.length}})<span class="pull-right"><input type="text" name="searchLead" [(ngModel)]="leadFilter" placeholder="Search employee"></span></div>
               
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let leadEmployee of skillEmployees.leadEmployees | generalFilter: leadFilter" data-status="pagado">
+                      <tr *ngFor="let leadEmployee of skillEmployees.LdEmployees | generalFilter: leadFilter" data-status="pagado">
                         <td>
                           
                         </td>

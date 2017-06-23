@@ -19,6 +19,7 @@ const states = ['AngularJS', 'Angular2', 'Java', 'jQuery', 'Knockout Js', 'Pytho
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  skills: Skill[];
   skillsNames: string[];
   skillEmployees: SkillEmployees;
   juniorOption: boolean = false;
@@ -33,8 +34,8 @@ export class SearchComponent implements OnInit {
   constructor(private databaseService: DatabaseService) { }
 
   ngOnInit() {
-    this.databaseService.getSkills().then(skills => this.skillsNames = skills.map(function(a) {return a.name}))
-    this.databaseService.getSkillEmployees().then(employees => this.skillEmployees = employees);
+    this.databaseService.getSkills().then(skills => this.skills = skills);
+    this.databaseService.getSkills().then(skills => this.skillsNames = skills.map(function(a) {return a.name}));
   }
 
   public model: any;
@@ -91,5 +92,11 @@ export class SearchComponent implements OnInit {
         }
         break;
     }
+  }
+
+  searchEmployees(skillName: string): void {
+    let sk: Skill = this.skills.find(skill => skill.name == skillName);
+    this.databaseService.getSkillEmployees(sk.id).then(employees => this.skillEmployees = employees);
+    console.log(this.skillEmployees);
   }
 }

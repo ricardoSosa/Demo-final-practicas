@@ -18,6 +18,8 @@ import 'rxjs/add/operator/switchMap';
 export class SkillComponent implements OnInit {
   skill: Skill;
   editName: boolean = false;
+  addFamilyOption: boolean = false;
+  removeFamilyOption: boolean = false;
 
   constructor(
     private databaseService: DatabaseService,
@@ -41,6 +43,24 @@ export class SkillComponent implements OnInit {
 
   closeEditSkill(): void {
     this.editName = false;
+  }
+
+  activateAddFamilyOption(): void {
+    this.removeFamilyOption = false;
+    if(this.addFamilyOption){
+      this.addFamilyOption = false;
+    } else {
+      this.addFamilyOption = true;
+    }
+  }
+
+  activateRemoveFamilyOption(option: number): void {
+    this.addFamilyOption = false;
+    if(this.removeFamilyOption){
+      this.removeFamilyOption = false;
+    } else {
+      this.removeFamilyOption = true;
+    }
   }
 
 }

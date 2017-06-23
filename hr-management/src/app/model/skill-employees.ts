@@ -1,8 +1,10 @@
 import { Employee } from 'app/model/employee';
 
 export class SkillEmployees {
-    juniorEmployees: Employee[];
-    intermediateEmployees: Employee[];
-    seniorEmployees: Employee[];
-    leadEmployees: Employee[];
+    id: string;
+    name: string;
+    JrEmployees: Employee[];
+    IntEmployees: Employee[];
+    SrEmployees: Employee[];
+    LdEmployees: Employee[];
 }

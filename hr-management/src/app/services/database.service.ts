@@ -1,38 +1,37 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Headers, Http } from '@angular/http';
 
 import { Employee } from 'app/model/employee';
 import { Skill } from 'app/model/skill';
 import { EmployeeSkills } from 'app/model/employee-skills';
 import { SkillEmployees } from 'app/model/skill-employees';
 
-import { SKILLS } from 'app/services/mock-employee-skills';
-import { EMPS } from 'app/services/mock-employees';
-import { SK } from 'app/services/mock-skills';
-import { SKEMP } from 'app/services/mock-skill-employees';
-
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class DatabaseService {
+    private headers = new Headers({'Content-Type': 'application/json'});
+
     constructor(private http: Http) { }
     
     getEmployees(): Promise<Employee[]> {
-        return Promise.resolve(EMPS);
-        //return this.http.get('http://localhost:54395/api/Employee/getList')
-         //       .toPromise()
-          //      .then(response => response.json() as Employee[])
-           //     .catch(this.handleError);
+        //return Promise.resolve(EMPS);
+        return this.http.get('http://localhost:54395/api/Employee/getList')
+                .toPromise()
+                .then(response => response.json().employees as Employee[])
+                .catch(this.handleError);
     }
 
     getEmployee(id: string): Promise<Employee> {
-        return this.getEmployees()
-                    .then(emps => emps.find(emp => emp.id === id));
+        return this.http.get('http://localhost:54395/api/Employee/getEmployee?userId='+id)
+                .toPromise()
+                .then(response => response.json() as Employee)
+                .catch(this.handleError);
     }
 
-    getEmployeeSkills(id: string): Promise<EmployeeSkills> {
-        return Promise.resolve(SKILLS);
-    }
+    //getEmployeeSkills(id: string): Promise<EmployeeSkills> {
+    //    return Promise.resolve(SKILLS);
+    //}
 
     getSkills(): Promise<Skill[]> {
         return this.http.get('http://localhost:54395/api/Skill/getList')
@@ -53,7 +52,21 @@ export class DatabaseService {
                 .catch(this.handleError);
     }
 
-    getSkillEmployees(): Promise<SkillEmployees> {
-        return Promise.resolve(SKEMP);
+    getSkillEmployees(id: string): Promise<SkillEmployees> {
+        return this.http.get('http://localhost:54395/api/Skill/getEmployees?id='+id)
+                .toPromise()
+                .then(response => response.json() as SkillEmployees)
+                .catch(this.handleError);
     }
+
+    /*assignSkill(employeeName: string, skillName: string, skillLevel: string): Promise<string> {
+       return this.http
+                .post('http://localhost:54395/api/Employee/assignSkill', JSON.stringify({
+                    employeeName: employeeName, 
+                    skillName: skillName, 
+                    skillLevel: skillLevel}), {headers: this.headers})
+                .toPromise()
+                .then(res => res.json() as string)
+                .catch(this.handleError);
+    }*/
 }

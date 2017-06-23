@@ -9,7 +9,7 @@
 
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">ID: {{employee.id}}</div>
+      <div class="panel-heading">ID: {{employee.ID}}</div>
       <div class="panel-body">
 
         <div class="list-group">
@@ -23,8 +23,8 @@
 
               <div class="form-group">
                 <label>Name:</label>
-                <h2 id="employeeName" *ngIf="!editName">{{employee.name}}</h2>
-                <input *ngIf="editName" type="text" class="form-control" value="{{employee.name}}">
+                <h2 id="employeeName" *ngIf="!editName">{{employee.NAME}}</h2>
+                <input *ngIf="editName" type="text" class="form-control" value="{{employee.NAME}}">
               </div>
 
             </div>
@@ -52,7 +52,7 @@
             <div class="panel-body">
               <div *ngIf="addSkillOption==1">
                 <select>
-                  <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
+                  <option *ngFor="let skill of skills" [ngValue]="skill.name">{{skill.name}}</option>
                 </select>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
                 <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
@@ -60,8 +60,8 @@
                 <br>               
               </div>
               <ul>
-                <li *ngFor="let juniorSkill of employeeSkills.juniorSkills" >
-                <label>{{juniorSkill}}</label><button *ngIf="removeSkillOption==1" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <li *ngFor="let jrSkill of employee.JrSkills" >
+                <label>{{jrSkill.name}}</label><button *ngIf="removeSkillOption==1" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
                 </li>
               </ul>
             </div>
@@ -85,8 +85,8 @@
                 <br>               
               </div>
               <ul>
-                <li *ngFor="let intermediateSkill of employeeSkills.intermediateSkills" >
-                <label>{{intermediateSkill}}</label><button *ngIf="removeSkillOption==2" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <li *ngFor="let intSkill of employee.IntSkills" >
+                <label>{{intSkill.name}}</label><button *ngIf="removeSkillOption==2" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
                 </li>
               </ul>
             </div>
@@ -110,8 +110,8 @@
                 <br>               
               </div>
               <ul>
-                <li *ngFor="let seniorSkill of employeeSkills.seniorSkills" >
-                <label>{{seniorSkill}}</label><button *ngIf="removeSkillOption==3" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <li *ngFor="let srSkill of employee.SrSkills" >
+                <label>{{srSkill.name}}</label><button *ngIf="removeSkillOption==3" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
                 </li>
               </ul>
             </div>
@@ -135,8 +135,8 @@
                 <br>               
               </div>
               <ul>
-                <li *ngFor="let leadSkill of employeeSkills.leadSkills" >
-                <label>{{leadSkill}}</label><button *ngIf="removeSkillOption==4" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                <li *ngFor="let ldSkill of employee.LdSkills" >
+                <label>{{ldSkill.name}}</label><button *ngIf="removeSkillOption==4" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
                 </li>
               </ul>
             </div>

@@ -10,7 +10,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class DatabaseService {
-    private headers = new Headers({'Content-Type': 'application/json'});
+    //private headers = new Headers({'Content-Type': 'application/json'});
 
     constructor(private http: Http) { }
     

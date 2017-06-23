@@ -1,0 +1,62 @@
+<div class="page-header">
+  <h1> Skills</h1>
+</div>
+
+
+<div class="row">
+
+  
+  <div class="col-md-12">
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">ID: {{skill.id}}</div>
+      <div class="panel-body">
+
+        <div class="list-group">
+
+          <a class="list-group-item">
+            <div class="col-xs-12 col-sm-1">
+              <img src="https://i1.wp.com/tr1.cbsistatic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png?ssl=1" />
+            </div>
+            <div class="col-xs-12 col-sm-9">
+
+              <div class="form-group">          
+                <label>Name:</label>
+                <h2 id="skillName" *ngIf="!editName">{{skill.name}}</h2>
+                <input *ngIf="editName" type="text" class="form-control" value="{{skill.name}}">
+              </div>
+
+           
+              
+
+            </div>
+            <div class="col-xs-12 col-sm-2">
+              <button id="editButton" *ngIf="!editName" (click)="editSkill()" class="btn btn-default"><span class="glyphicon glyphicon-wrench"></span> Edit </button>
+              
+              <button id="saveButton" *ngIf="editName" (click)="closeEditSkill()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span> Save </button>
+
+              <button id="cancelButton" *ngIf="editName" (click)="closeEditSkill()" class="btn btn-default">Cancel </button>
+            </div>
+            <div class="clearfix"></div>
+          </a>
+
+      </div>
+
+    </div>
+    
+    <div id="families" class="col-md-6 col-md-offset-3">
+        <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Families</div>
+            <div class="panel-body">
+              <ul>
+                <li *ngFor="let juniorSkill of employeeSkills.juniorSkills" >
+                <label>{{juniorSkill}}</label><button *ngIf="removeSkillOption==1" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                </li>
+              </ul>            
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

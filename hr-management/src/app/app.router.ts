@@ -4,7 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './content/home/home.component';
 import { SearchComponent } from './content/search/search.component';
-import { SkillComponent } from './content/Skills/skill.component';
+import { SkillsListComponent } from './content/skills/list/skills-list.component';
+import { SkillComponent } from './content/skills/read/skill.component';
 
 import { ListComponent } from './content/developers/list/list.component';
 import { ReadComponent } from './content/developers/read/read.component';
@@ -21,7 +22,8 @@ export const router: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'developers', component: ListComponent },
     { path: 'developers/:id', component: ReadComponent },
-    { path: 'Skills', component: SkillComponent },
+    { path: 'skills', component: SkillsListComponent },
+    { path: 'skills/:id', component: SkillComponent }
 
     //{ path: 'developers/:id', component: DevelopersComponent },
     //{ path: 'skill/:id', component: SkillsComponent }

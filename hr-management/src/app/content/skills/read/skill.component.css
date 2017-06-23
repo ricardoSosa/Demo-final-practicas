@@ -1,0 +1,17 @@
+#editButton {
+	margin-bottom: -73px;
+}
+
+#saveButton {
+	margin-bottom: -73px;
+	display: inline-block;
+}
+
+#cancelButton {
+	margin-bottom: -73px;
+	display: inline-block;
+}
+
+#families {
+	margin-top: 20px;
+}

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TagInputModule } from 'ng2-tag-input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 //Import bootstrao libraries -> 
@@ -21,12 +21,13 @@ import { SearchComponent } from './content/search/search.component';
 import { ReportsComponent } from './content/reports/reports.component';
 import { ListComponent } from './content/developers/list/list.component';
 import { ReadComponent } from './content/developers/read/read.component';
-import { SkillComponent } from './content/Skills/skill.component';
+import { SkillsListComponent } from './content/skills/list/skills-list.component';
+import { SkillComponent } from './content/skills/read/skill.component';
 import { LoginComponent } from './session/login/login.component';
 import { LogoutComponent } from './session/logout/logout.component';
 
 //Services
-import { EmployeeService } from 'app/services/employee.service';
+import { DatabaseService } from 'app/services/database.service';
 
 //Pipes
 import { GeneralFilter } from 'app/pipes/general-filter.pipe';
@@ -44,6 +45,7 @@ import { GeneralFilter } from 'app/pipes/general-filter.pipe';
     LoginComponent,
     LogoutComponent,
     SkillComponent,
+    SkillsListComponent,
     GeneralFilter
   ],
   imports: [
@@ -54,7 +56,9 @@ import { GeneralFilter } from 'app/pipes/general-filter.pipe';
     NgbModule.forRoot(),
     routes
   ],
-  providers: [EmployeeService],
+  providers: [
+    DatabaseService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

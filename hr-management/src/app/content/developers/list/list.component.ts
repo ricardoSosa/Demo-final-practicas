@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Employee } from 'app/model/employee';
-import { EmployeeService } from 'app/services/employee.service';
+import { DatabaseService } from 'app/services/database.service';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +13,7 @@ export class ListComponent implements OnInit {
   filter: string;
 
   constructor(
-    private employeeService: EmployeeService
+    private databaseService: DatabaseService
   ) { }
 
   ngOnInit() {
@@ -21,6 +21,6 @@ export class ListComponent implements OnInit {
   }
 
   getEmployees(): void {
-      this.employeeService.getEmployees().then(employees => this.employees = employees);
+      this.databaseService.getEmployees().then(employees => this.employees = employees);
   }
 }

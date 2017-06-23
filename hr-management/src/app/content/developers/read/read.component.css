@@ -19,3 +19,26 @@
 #employeeName {
 	margin-top: 5px;
 }
+
+#skillLevels {
+	margin-top: 20px;
+}
+
+.glyphicon-plus {
+	font-size: 11px;
+	-webkit-text-stroke: 1px white;
+}
+
+.glyphicon-remove {
+	font-size: 11px;
+	-webkit-text-stroke: 1px white;
+}
+
+.glyphicon-ok {
+	font-size: 11px;
+	-webkit-text-stroke: 1px white;
+}
+
+.btn-xs {
+	float: right;
+}

@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1>Skills</h1>
+</div>
+
+
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading"><span class="glyphicon glyphicon-dashboard"></span> Search Skills</div>
+      <div class="panel-body">
+        <ul class="list-group">
+          <li class="list-group-item">
+           <input type="Text" name="Search" [(ngModel)]="filter" class="form-control" placeholder="Skill's name">
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">List of Skills</div>
+      <div class="panel-body">
+
+        <div class="list-group">
+              <a *ngFor="let skill of skills | generalFilter: filter" routerLink="/skills/{{skill.id}}" class="list-group-item">
+                <div class="col-xs-12 col-sm-3">
+                  <img src="https://i1.wp.com/tr1.cbsistatic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png?ssl=1"
+                     class="img-responsive img-circle" />
+                </div>
+                <div class="col-xs-12 col-sm-9">
+                    <h3 id="skillName" class="list-group-item-heading">{{skill.name}}</h3>
+                </div>
+                <div class="clearfix"></div>
+              </a>
+              <!--
+        <span class="name">Scott Stevens</span><br/>
+        <span class="glyphicon glyphicon-map-marker text-muted c-info" data-toggle="tooltip" title="5842 Hillcrest Rd"></span>
+        <span class="visible-xs"> <span class="text-muted">5842 Hillcrest Rd</span><br/></span>
+        <span class="glyphicon glyphicon-earphone text-muted c-info" data-toggle="tooltip" title="(870) 288-4149"></span>
+        <span class="visible-xs"> <span class="text-muted">(870) 288-4149</span><br/></span>
+        <span class="fa fa-comments text-muted c-info" data-toggle="tooltip" title="scott.stevens@example.com"></span>
+        <span class="visible-xs"> <span class="text-muted">scott.stevens@example.com</span><br/></span>
+        -->
+
+      </div>
+    </div>
+  </div>
+</div>

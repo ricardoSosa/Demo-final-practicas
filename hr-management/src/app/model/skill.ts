@@ -1,4 +1,5 @@
 export class Skill {
-    id: number;
+    id: string;
     name: string;
+    skillGroups: string[];
 }

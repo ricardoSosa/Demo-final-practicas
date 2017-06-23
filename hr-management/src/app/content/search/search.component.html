@@ -9,10 +9,10 @@
     <div class="panel panel-default">
       <div class="panel-body">
         <div class="form-group">
-          
           <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" placeholder="What skill do you want to look for?"/>
           <!--<input type="text" id="tags" class="form-control" placeholder="What skill do you want to look for?">-->
         </div>
+        <button id="searchButton" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-search"></span> Search</button>
       </div>
     </div>
   </div>
@@ -28,24 +28,26 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="row">
-              <div class="col-md-4 col-md-offset-4">
+              <div class="col-md-6 col-md-offset-4">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-danger btn-filter" data-target="pagado">Junior</button>
-                  <button type="button" class="btn btn-warning btn-filter" data-target="pendiente">Intermediate</button>
-                  <button type="button" class="btn btn-success btn-filter" data-target="cancelado">Senior</button>
-                                  <button type="button" class="btn btn-info btn-filter" data-target="cancelado">Lead</button>
-                  <button type="button" class="btn btn-default btn-filter" data-target="all">All</button>
+                  <button (click)="changeFilterOption('junior')" type="button" class="btn btn-danger btn-filter" data-target="pagado">Junior</button>
+                  <button (click)="changeFilterOption('intermediate')" type="button" class="btn btn-warning btn-filter" data-target="pendiente">Intermediate</button>
+                  <button (click)="changeFilterOption('senior')" type="button" class="btn btn-success btn-filter" data-target="cancelado">Senior</button>
+                  <button (click)="changeFilterOption('lead')" type="button" class="btn btn-info btn-filter" data-target="cancelado">Lead</button>
+                  <button (click)="changeFilterOption('all')" type="button" class="btn btn-default btn-filter" data-target="all">All</button>
                 </div>
               </div>
             </div>
-            <div class="col-md-3">
+            <div *ngIf="juniorOption" class="col-md-3">
               <div class="panel panel-danger">
-               <div class="panel-heading">Junior <span class="pull-right"><input type="text" name=""></span></div>
+               <div class="panel-heading">Junior ({{skillEmployees.juniorEmployees.length}})<span class="pull-right">
+               <input type="text" name="searchJunior" [(ngModel)]="juniorFilter" placeholder="Search employee"></span>
+               </div>
             
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr data-status="pagado">
+                      <tr *ngFor="let juniorEmployee of skillEmployees.juniorEmployees | generalFilter: juniorFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -58,7 +60,7 @@
                             <div class="media-body">
                               
                               <h4 class="title">
-                                Erik Caceres
+                                {{juniorEmployee.name}}
                                 
                                                             
                               </h4>
@@ -67,150 +69,24 @@
                           </div>
                         </td>
                       </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                          
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Fabiola Alonso
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="cancelado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Herrera Claudio
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pagado" class="">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Oscar García
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">                          
-                              <h4 class="title">
-                                Rudy Carrillo
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                                        <tr data-status="pagado">
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="media">
-
-                                                    <div class="media-body">
-
-                                                        <h4 class="title">
-                                                            Gonzalo Jimenez
-                                                            
-                                                            
-                                                        </h4>
-                                                        <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr data-status="pagado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Eric Zaldivar
-                                                                                        
-                              </h4>
-                    <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
+                      
                     </tbody>
                   
                   </table>
-                   <span class="pull-right">Total : XXX</span>
                 </div>
               
               </div>
            
             </div> 
 
-            <div class="col-md-3">
+            <div *ngIf="intermediateOption" class="col-md-3">
               <div class="panel panel-warning">
-               <div class="panel-heading">Intermedium <span class="pull-right"><input type="text" name=""></span></div>
+               <div class="panel-heading">Inter. ({{skillEmployees.intermediateEmployees.length}})<span class="pull-right"><input type="text" name="searchIntermediate" [(ngModel)]="intermediateFilter" placeholder="Search employee"></span></div>
             
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr data-status="pagado">
+                      <tr *ngFor="let intermediateEmployee of skillEmployees.intermediateEmployees | generalFilter: intermediateFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -223,135 +99,9 @@
                             <div class="media-body">
                               
                               <h4 class="title">
-                                Erik Caceres
+                                {{intermediateEmployee.name}}
                                 
                                                             
-                              </h4>
-                    <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                          
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Fabiola Alonso
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="cancelado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Herrera Claudio
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pagado" class="">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Oscar García
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">                          
-                              <h4 class="title">
-                                Rudy Carrillo
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                                        <tr data-status="pagado">
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="media">
-
-                                                    <div class="media-body">
-
-                                                        <h4 class="title">
-                                                            Gonzalo Jimenez
-                                                            
-                                                            
-                                                        </h4>
-                                                        <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr data-status="pagado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Eric Zaldivar
-                                                                                        
                               </h4>
                     <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
                             </div>
@@ -361,18 +111,17 @@
                     </tbody>
                   </table>
                 </div>
-              <span class="pull-right">Total : XXX</span>
               </div>
             
             </div> 
-            <div class="col-md-3">
+            <div *ngIf="seniorOption" class="col-md-3">
               <div class="panel panel-success">
-               <div class="panel-heading">Senior <span class="pull-right"><input type="text" name=""></span></div>
+               <div class="panel-heading">Senior ({{skillEmployees.seniorEmployees.length}})<span class="pull-right"><input type="text" name="searchSenior" [(ngModel)]="seniorFilter" placeholder="Search employee"></span></div>
             
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr data-status="pagado">
+                      <tr *ngFor="let seniorEmployee of skillEmployees.seniorEmployees | generalFilter: seniorFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -385,135 +134,9 @@
                             <div class="media-body">
                               
                               <h4 class="title">
-                                Erik Caceres
+                                {{seniorEmployee.name}}
                                 
                                                             
-                              </h4>
-                    <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                          
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Fabiola Alonso
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="cancelado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Herrera Claudio
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pagado" class="">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Oscar García
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">                          
-                              <h4 class="title">
-                                Rudy Carrillo
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                                        <tr data-status="pagado">
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="media">
-
-                                                    <div class="media-body">
-
-                                                        <h4 class="title">
-                                                            Gonzalo Jimenez
-                                                            
-                                                            
-                                                        </h4>
-                                                        <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr data-status="pagado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Eric Zaldivar
-                                                                                        
                               </h4>
                     <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
                             </div>
@@ -523,18 +146,17 @@
                     </tbody>
                   </table>
                 </div>
-              <span class="pull-right">Total : XXX</span>
               </div>
             
             </div> 
-            <div class="col-md-3">
+            <div *ngIf="leadOption" class="col-md-3">
               <div class="panel panel-info">
-               <div class="panel-heading">Lead <span class="pull-right"><input type="text" name=""></span></div>
-            
+               <div class="panel-heading">Lead ({{skillEmployees.leadEmployees.length}})<span class="pull-right"><input type="text" name="searchLead" [(ngModel)]="leadFilter" placeholder="Search employee"></span></div>
+              
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr data-status="pagado">
+                      <tr *ngFor="let leadEmployee of skillEmployees.leadEmployees | generalFilter: leadFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -547,135 +169,9 @@
                             <div class="media-body">
                               
                               <h4 class="title">
-                                Erik Caceres
+                                {{leadEmployee.name}}
                                 
                                                             
-                              </h4>
-                    <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                          
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Fabiola Alonso
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="cancelado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Herrera Claudio
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pagado" class="">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Oscar García
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                      <tr data-status="pendiente">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">                          
-                              <h4 class="title">
-                                Rudy Carrillo
-                                
-                                                            
-                              </h4>
-                              <!-- <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                                        <tr data-status="pagado">
-                                            <td></td>
-                                            <td></td>
-                                            <td>
-                                                <div class="media">
-
-                                                    <div class="media-body">
-
-                                                        <h4 class="title">
-                                                            Gonzalo Jimenez
-                                                            
-                                                            
-                                                        </h4>
-                                                        <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr data-status="pagado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                Eric Zaldivar
-                                
                               </h4>
                     <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
                             </div>
@@ -685,7 +181,6 @@
                     </tbody>
                   </table>
                 </div>
-              <span class="pull-right">Total : XXX</span>
               
               </div>
             </div> 

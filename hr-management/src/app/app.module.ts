@@ -5,12 +5,17 @@ import { HttpModule } from '@angular/http';
 import { TagInputModule } from 'ng2-tag-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 //Import bootstrao libraries -> 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //Routes
 import { routes } from './app.router';
+
+//Services
+import { DatabaseService } from 'app/services/database.service';
+
+//Pipes
+import { GeneralFilter } from 'app/pipes/general-filter.pipe';
 
 //Components
 import { AppComponent } from './app.component';
@@ -25,12 +30,10 @@ import { SkillsListComponent } from './content/skills/list/skills-list.component
 import { SkillComponent } from './content/skills/read/skill.component';
 import { LoginComponent } from './session/login/login.component';
 import { LogoutComponent } from './session/logout/logout.component';
-
-//Services
-import { DatabaseService } from 'app/services/database.service';
-
-//Pipes
-import { GeneralFilter } from 'app/pipes/general-filter.pipe';
+import { SearchBarComponent } from './layout/search-bar/search-bar.component';
+import { TableLevelListsComponent } from './content/table-level-lists/table-level-lists.component';
+import { TestComponent } from './content/test/test.component';
+import { SkillLevelListComponent } from './content/table-level-lists/skill-level-list/skill-level-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,11 @@ import { GeneralFilter } from 'app/pipes/general-filter.pipe';
     LogoutComponent,
     SkillComponent,
     SkillsListComponent,
-    GeneralFilter
+    GeneralFilter,
+    SearchBarComponent,
+    TableLevelListsComponent,
+    TestComponent,
+    SkillLevelListComponent,
   ],
   imports: [
     TagInputModule,

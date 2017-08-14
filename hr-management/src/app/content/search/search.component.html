@@ -47,7 +47,7 @@
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let juniorEmployee of skillEmployees.JrEmployees | generalFilter: juniorFilter" data-status="pagado">
+                      <tr routerLink="/developers/{{juniorEmployee.id}}" *ngFor="let juniorEmployee of skillEmployees.JrEmployees | generalFilter: juniorFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -86,7 +86,7 @@
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let intermediateEmployee of skillEmployees.IntEmployees | generalFilter: intermediateFilter" data-status="pagado">
+                      <tr routerLink="/developers/{{intermediateEmployee.id}}" *ngFor="let intermediateEmployee of skillEmployees.IntEmployees | generalFilter: intermediateFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -121,7 +121,7 @@
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let seniorEmployee of skillEmployees.SrEmployees | generalFilter: seniorFilter" data-status="pagado">
+                      <tr routerLink="/developers/{{seniorEmployee.id}}" *ngFor="let seniorEmployee of skillEmployees.SrEmployees | generalFilter: seniorFilter" data-status="pagado">
                         <td>
                           
                         </td>
@@ -156,7 +156,7 @@
                 <div class="table-container">
                   <table class="table table-filter" >
                     <tbody>
-                      <tr *ngFor="let leadEmployee of skillEmployees.LdEmployees | generalFilter: leadFilter" data-status="pagado">
+                      <tr routerLink="/developers/{{leadEmployee.id}}" *ngFor="let leadEmployee of skillEmployees.LdEmployees | generalFilter: leadFilter" data-status="pagado">
                         <td>
                           
                         </td>

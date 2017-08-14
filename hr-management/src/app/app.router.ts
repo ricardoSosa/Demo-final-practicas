@@ -13,6 +13,7 @@ import { ReadComponent } from './content/developers/read/read.component';
 import { LoginComponent } from './session/login/login.component';
 import { LogoutComponent } from './session/logout/logout.component';
 
+import { TestComponent } from './content/test/test.component';
 
 export const router: Routes = [
     { path: '', redirectTo: 'search', pathMatch: 'full' },
@@ -23,8 +24,8 @@ export const router: Routes = [
     { path: 'developers', component: ListComponent },
     { path: 'developers/:id', component: ReadComponent },
     { path: 'skills', component: SkillsListComponent },
-    { path: 'skills/:id', component: SkillComponent }
-
+    { path: 'skills/:id', component: SkillComponent },
+    { path: 'test', component: TestComponent }
     //{ path: 'developers/:id', component: DevelopersComponent },
     //{ path: 'skill/:id', component: SkillsComponent }
 ];

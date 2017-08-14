@@ -60,13 +60,9 @@ export class DatabaseService {
     }
 
     /*assignSkill(employeeName: string, skillName: string, skillLevel: string): Promise<string> {
-       return this.http
-                .post('http://localhost:54395/api/Employee/assignSkill', JSON.stringify({
-                    employeeName: employeeName, 
-                    skillName: skillName, 
-                    skillLevel: skillLevel}), {headers: this.headers})
+       return this.http.http.get('http://localhost:54395/api/Employee/assignSkill?userId='+id)
                 .toPromise()
-                .then(res => res.json() as string)
+                .then(response => response.json() as SkillEmployees)
                 .catch(this.handleError);
     }*/
 }

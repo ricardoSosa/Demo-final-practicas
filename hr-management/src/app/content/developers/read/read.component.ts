@@ -69,6 +69,6 @@ export class ReadComponent implements OnInit {
   }
 
   /*assignSkill(skillLevel: string): void {
-    this.databaseService.assignSkill(this.employee.name, this.selectedValue, skillLevel);
+    this.databaseService.assignSkill(this.employee.id, this.selectedValue, skillLevel);
   }*/
 }

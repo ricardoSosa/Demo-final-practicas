@@ -6,11 +6,13 @@ import { TableLevelListsComponent } from '../table-level-lists/table-level-lists
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
-  styleUrls: ['./test.component.css']
+  styleUrls: ['./test.component.css'],
+  providers: [ SkillLevelListComponent ]
 })
 export class TestComponent implements OnInit {
+  levelName: string = 'Int';
 
-  constructor() { }
+  constructor(private skillLevelListComponent: SkillLevelListComponent) {}
 
   ngOnInit() {
   }

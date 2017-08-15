@@ -1,35 +1,10 @@
 <div class="col-md-3">
-              <div class="panel panel-warning">
-               <div class="panel-heading">Inter. ({{skillEmployees.IntEmployees.length}})<span class="pull-right"><input type="text" name="searchIntermediate" [(ngModel)]="intermediateFilter" placeholder="Search employee"></span></div>
-            
-                <div class="table-container">
-                  <table class="table table-filter" >
-                    <tbody>
-                      <tr routerLink="/developers/{{intermediateEmployee.id}}" *ngFor="let intermediateEmployee of skillEmployees.IntEmployees | generalFilter: intermediateFilter" data-status="pagado">
-                        <td>
-                          
-                        </td>
-                        <td>
-                          
-                        </td>
-                        <td>
-                          <div class="media">
-                            
-                            <div class="media-body">
-                              
-                              <h4 class="title">
-                                {{intermediateEmployee.name}}
-                                
-                                                            
-                              </h4>
-                    <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
-                            </div>
-                          </div>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            
-            </div> 
+  <div [ngClass]="color">
+   <div class="panel-heading">{{levelName}}<span class="pull-right"><input type="text" id="txtSearch" placeholder="Search employee"></span></div>
+
+    <div class="table-container">
+      <table class="table table-filter" >
+      </table>
+    </div>
+  </div>
+</div> 

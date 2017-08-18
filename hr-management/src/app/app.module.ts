@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { TagInputModule } from 'ng2-tag-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JsonpModule } from '@angular/http';
+import {Ng2PaginationModule} from 'ng2-pagination';
 
 //Import bootstrao libraries -> 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -37,6 +38,9 @@ import { TestComponent } from './content/test/test.component';
 import { SkillLevelListComponent } from './content/table-level-lists/skill-level-list/skill-level-list.component';
 import { SelectionListComponent } from './content/selection-list/selection-list.component';
 import { InformationPanelComponent } from './content/information-panel/information-panel.component';
+import { DevLevelListComponent } from './content/table-level-lists/dev-level-list/dev-level-list.component';
+import { OptionsPanelComponent } from './content/developers/read/options-panel/options-panel.component';
+import { DevListComponent } from './content/dev-list/dev-list.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,9 @@ import { InformationPanelComponent } from './content/information-panel/informati
     SkillLevelListComponent,
     SelectionListComponent,
     InformationPanelComponent,
+    DevLevelListComponent,
+    OptionsPanelComponent,
+    DevListComponent,
   ],
   imports: [
     JsonpModule,
@@ -67,7 +74,8 @@ import { InformationPanelComponent } from './content/information-panel/informati
     FormsModule,
     HttpModule,
     NgbModule.forRoot(),
-    routes
+    routes,
+    Ng2PaginationModule
   ],
   providers: [
     DatabaseService

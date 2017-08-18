@@ -1,17 +1,34 @@
 
-	<table>
+	<table *ngIf="element == 'skill'">
 		<tr>
 			<td>
-				<app-skill-level-list [levelName]="strJunior" [levelColor]="colorJunior"></app-skill-level-list>
+				<app-skill-level-list [levelName]="strJunior" [levelColor]="colorJunior" *ngIf="skillEmployees" [skillEmployees]="skillEmployees.JrEmployees"></app-skill-level-list>
 			</td>
 			<td>
-				<app-skill-level-list [levelName]="strIntermediate" [levelColor]="colorIntermediate"></app-skill-level-list>
+				<app-skill-level-list [levelName]="strIntermediate" [levelColor]="colorIntermediate" *ngIf="skillEmployees" [skillEmployees]="skillEmployees.IntEmployees"></app-skill-level-list>
 			</td>
 			<td>
-				<app-skill-level-list [levelName]="strSenior" [levelColor]="colorSenior"></app-skill-level-list>
+				<app-skill-level-list [levelName]="strSenior" [levelColor]="colorSenior" *ngIf="skillEmployees" [skillEmployees]="skillEmployees.SrEmployees"></app-skill-level-list>
 			</td>
 			<td>
-				<app-skill-level-list [levelName]="strLead" [levelColor]="colorLead"></app-skill-level-list>
+				<app-skill-level-list [levelName]="strLead" [levelColor]="colorLead" *ngIf="skillEmployees" [skillEmployees]="skillEmployees.LdEmployees"></app-skill-level-list>
+			</td>
+		</tr>
+	</table>
+
+	<table *ngIf="element == 'developer'">
+		<tr>
+			<td>
+				<app-dev-level-list [levelName]="strJunior" [levelColor]="colorJunior" *ngIf="employee" [skills]="employee.JrSkills"></app-dev-level-list>
+			</td>
+			<td>
+				<app-dev-level-list [levelName]="strIntermediate" [levelColor]="colorIntermediate" *ngIf="employee" [skills]="employee.IntSkills"></app-dev-level-list>
+			</td>
+			<td>
+				<app-dev-level-list [levelName]="strSenior" [levelColor]="colorSenior" *ngIf="employee" [skills]="employee.SrSkills"></app-dev-level-list>
+			</td>
+			<td>
+				<app-dev-level-list [levelName]="strLead" [levelColor]="colorLead" *ngIf="employee" [skills]="employee.LdSkills"></app-dev-level-list>
 			</td>
 		</tr>
 	</table>

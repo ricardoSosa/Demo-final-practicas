@@ -2,24 +2,21 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 import { Skill } from 'app/model/skill';
 import { Employee } from 'app/model/employee';
-import { SkillEmployees } from 'app/model/skill-employees';
-
-const states = ['AngularJS', 'Angular2', 'Java', 'jQuery', 'Knockout Js', 'Python', '.Net', 'ASP.Net', 'JSP', 'Aplets'];
+import { EmployeeSkills } from 'app/model/employee-skills';
 
 @Component({
-  selector: 'app-skill-level-list',
-  templateUrl: './skill-level-list.component.html',
-  styleUrls: ['./skill-level-list.component.css']
+  selector: 'app-dev-level-list',
+  templateUrl: './dev-level-list.component.html',
+  styleUrls: ['./dev-level-list.component.css']
 })
-export class SkillLevelListComponent implements OnInit, OnChanges {
+export class DevLevelListComponent implements OnInit {
   @Input() levelName: string;
   @Input() levelColor: string;
-  @Input() skillEmployees: Employee[];
+  @Input() skills: Skill[];
   headerColor: string;
   containerColor: string;
 
-  constructor() { 
-  }
+  constructor() { }
 
   ngOnChanges() {
 

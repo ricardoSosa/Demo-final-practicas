@@ -1,75 +1,10 @@
-<div class="page-header">
-  <h1> Skills</h1>
-  <button id="back" (click)="goBack()" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-repeat"></span></button>
-</div>
-
-
+<br />
+<br />
+<br />
 <div class="row">
-
-  
-  <div class="col-md-12">
-
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading">ID: {{skill.id}}</div>
-      <div class="panel-body">
-
-        <div class="list-group">
-
-          <a class="list-group-item">
-            <div class="col-xs-12 col-sm-1">
-              <img src="https://i1.wp.com/tr1.cbsistatic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png?ssl=1" />
-            </div>
-            <div class="col-xs-12 col-sm-9">
-
-              <div class="form-group">          
-                <label>Name:</label>
-                <h2 id="skillName" *ngIf="!editName">{{skill.name}}</h2>
-                <input *ngIf="editName" type="text" class="form-control" value="{{skill.name}}">
-              </div>
-
-           
-              
-
-            </div>
-            <div class="col-xs-12 col-sm-2">
-              <button id="editButton" *ngIf="!editName" (click)="editSkill()" class="btn btn-default"><span class="glyphicon glyphicon-wrench"></span> Edit </button>
-              
-              <button id="saveButton" *ngIf="editName" (click)="closeEditSkill()" class="btn btn-default"><span class="glyphicon glyphicon-floppy-disk"></span> Save </button>
-
-              <button id="cancelButton" *ngIf="editName" (click)="closeEditSkill()" class="btn btn-default">Cancel </button>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-
-      </div>
-
-    </div>
-    
-    <div id="families" class="col-md-6 col-md-offset-3">
-        <div class="panel panel-info">
-            <!-- Default panel contents -->
-            <div class="panel-heading">Families
-              <button (click)="activateRemoveFamilyOption()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-              <button (click)="activateAddFamilyOption()" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-plus"></span></button>
-            </div>
-            <div class="panel-body">
-              <div *ngIf="addFamilyOption">
-                <select>
-                  <option *ngFor="let skill of skills" [ngValue]="skill">{{skill.name}}</option>
-                </select>
-                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ban-circle"></span></button>
-                <button class="btn btn-default btn-xs"><span class="glyphicon glyphicon-ok-circle"></span></button>
-                <br>
-                <br>               
-              </div>
-              <ul>
-                <li *ngFor="let family of skill.SkillGroups" >
-                <label>{{family.name}}</label><button *ngIf="removeFamilyOption" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove-circle"></span></button>
-                </li>
-              </ul>            
-            </div>
-        </div>
-    </div>
+  <div id="side">
+    <app-information-panel [skill]="skill"></app-information-panel>
+    <app-selection-list></app-selection-list>
   </div>
+  <app-table-level-lists *ngIf="skill" [element]="element" [skillEmployees]="skillEmployees"></app-table-level-lists>
 </div>

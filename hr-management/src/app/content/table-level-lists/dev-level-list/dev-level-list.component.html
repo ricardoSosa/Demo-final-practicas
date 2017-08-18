@@ -1,10 +1,10 @@
 <div class="panel" id="panel" [style.background-color]="headerColor">
-	<div class="panel-heading">{{levelName}}<span class="pull-right"><input type="text" id="txtSearch" [(ngModel)]="filter" placeholder="Search employee"></span></div>
+	<div class="panel-heading">{{levelName}}<span class="pull-right"><input type="text" id="txtSearch" [(ngModel)]="filter" placeholder="Search skill"></span></div>
 
 	<div class="table-container" [style.background-color]="containerColor">
 		<table class="table table-filter" >
 			<tbody>
-              <tr routerLink="/developers/{{Employee.id}}" *ngFor="let Employee of skillEmployees | generalFilter: filter" data-status="pagado">
+              <tr routerLink="/skills/{{Skill.id}}" *ngFor="let Skill of skills | generalFilter: filter" data-status="pagado">
                 <td>
                   
                 </td>
@@ -17,7 +17,7 @@
                     <div class="media-body">
                       
                       <h4 class="title">
-                        {{Employee.name}}                   
+                        {{Skill.name}}                   
                       </h4>
             <!--          <p class="summary">Ut enim ad minim veniam, quis nostrud exercitation...</p> -->
                     </div>

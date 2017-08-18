@@ -1,6 +1,7 @@
 <div class="panel panel-default">
 	<div class="panel-heading">Information</div>
 	<div class="panel-body">
-		Nombre: <label id="name">---</label>
+		<div *ngIf="skill">Nombre: <label id="name">{{skill.name}}</label></div>
+		<div *ngIf="employee">Nombre: <label id="name">{{employee.name}}</label></div>
 	</div>
 </div>

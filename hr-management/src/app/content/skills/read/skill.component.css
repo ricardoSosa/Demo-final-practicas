@@ -1,36 +1,10 @@
-#editButton {
-	margin-bottom: -73px;
-}
-
-#saveButton {
-	margin-bottom: -73px;
+app-table-level-lists {
 	display: inline-block;
+	margin-left: 10px;
 }
 
-#cancelButton {
-	margin-bottom: -73px;
+#side {
+	float: left;
 	display: inline-block;
-}
-
-#families {
-	margin-top: 20px;
-}
-
-.glyphicon-plus {
-	font-size: 11px;
-	-webkit-text-stroke: 1px white;
-}
-
-.glyphicon-remove {
-	font-size: 11px;
-	-webkit-text-stroke: 1px white;
-}
-
-.glyphicon-ok {
-	font-size: 11px;
-	-webkit-text-stroke: 1px white;
-}
-
-.btn-xs {
-	float: right;
+	margin-left: 25px;
 }

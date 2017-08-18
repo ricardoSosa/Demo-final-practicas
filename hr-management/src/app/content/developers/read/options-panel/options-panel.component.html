@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+	<div class="panel-heading">Add skill</div>
+	<div class="panel-body">
+		<div id="searchText"><input type="Text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" placeholder="Skill name" /></div>
+		<br />
+		Level: <select>
+			<option>Junior</option>
+			<option>Intermediate</option>
+			<option>Senior</option>
+			<option>Lead</option>
+		</select>
+		<br />
+		<br />
+        <button id="addButton" class="btn btn-info" type="button">
+            <i class="glyphicon glyphicon-plus"></i>
+        </button>
+	</div>
+</div>

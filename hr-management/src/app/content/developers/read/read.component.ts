@@ -2,6 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
+import { SkillLevelListComponent } from '../../table-level-lists/skill-level-list/skill-level-list.component';
+import { TableLevelListsComponent } from '../../table-level-lists/table-level-lists.component';
+import { SelectionListComponent } from '../../selection-list/selection-list.component';
+import { InformationPanelComponent } from '../../information-panel/information-panel.component';
+import { OptionsPanelComponent } from './options-panel/options-panel.component';
+
 //Model
 import { Employee } from 'app/model/employee';
 import { EmployeeSkills } from 'app/model/employee-skills';
@@ -15,7 +21,8 @@ import 'rxjs/add/operator/switchMap';
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
-  styleUrls: ['./read.component.css']
+  styleUrls: ['./read.component.css'],
+  providers: [ TableLevelListsComponent ]
 })
 export class ReadComponent implements OnInit {
   employee: Employee;
@@ -23,12 +30,14 @@ export class ReadComponent implements OnInit {
   editName: boolean = false;
   addSkillOption: number = 0;
   removeSkillOption: number = 0;
+  element: string = "developer";
   //selectedValue: string;
 
   constructor(
     private databaseService: DatabaseService,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private tableLevelListsComponent: TableLevelListsComponent
   ) { }
 
   ngOnInit() {

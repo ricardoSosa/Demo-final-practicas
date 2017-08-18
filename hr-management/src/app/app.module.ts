@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TagInputModule } from 'ng2-tag-input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JsonpModule } from '@angular/http';
 
 //Import bootstrao libraries -> 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -34,6 +35,8 @@ import { SearchBarComponent } from './layout/search-bar/search-bar.component';
 import { TableLevelListsComponent } from './content/table-level-lists/table-level-lists.component';
 import { TestComponent } from './content/test/test.component';
 import { SkillLevelListComponent } from './content/table-level-lists/skill-level-list/skill-level-list.component';
+import { SelectionListComponent } from './content/selection-list/selection-list.component';
+import { InformationPanelComponent } from './content/information-panel/information-panel.component';
 
 @NgModule({
   declarations: [
@@ -54,8 +57,11 @@ import { SkillLevelListComponent } from './content/table-level-lists/skill-level
     TableLevelListsComponent,
     TestComponent,
     SkillLevelListComponent,
+    SelectionListComponent,
+    InformationPanelComponent,
   ],
   imports: [
+    JsonpModule,
     TagInputModule,
     BrowserModule,
     FormsModule,

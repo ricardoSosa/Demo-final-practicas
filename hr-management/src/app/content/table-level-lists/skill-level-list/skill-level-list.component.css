@@ -2,6 +2,10 @@
 	margin-top: -3px;
 }
 
-.panel-heading {
-	
+#panel {
+	border-radius: 0px;
+}
+
+.table-container {
+	height: 600px;
 }

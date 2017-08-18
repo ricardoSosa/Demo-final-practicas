@@ -9,7 +9,7 @@
 
     <div class="panel panel-default">
       <!-- Default panel contents -->
-      <div class="panel-heading">ID: {{employee.ID}}</div>
+      <div class="panel-heading">ID: {{employee.id}}</div>
       <div class="panel-body">
 
         <div class="list-group">
@@ -23,7 +23,7 @@
 
               <div class="form-group">
                 <label>Name:</label>
-                <h2 id="employeeName" *ngIf="!editName">{{employee.NAME}}</h2>
+                <h2 id="employeeName" *ngIf="!editName">{{employee.name}}</h2>
                 <input *ngIf="editName" type="text" class="form-control" value="{{employee.NAME}}">
               </div>
 

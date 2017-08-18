@@ -1,0 +1,10 @@
+app-table-level-lists {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#side {
+	float: left;
+	display: inline-block;
+	margin-left: 25px;
+}

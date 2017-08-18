@@ -1,6 +1,18 @@
-<div id="tableLevelLists" class="col-md-10">
-	<app-skill-level-list [levelName]="strJunior" [levelColor]="colorJunior"></app-skill-level-list>
-	<app-skill-level-list [levelName]="strIntermediate" [levelColor]="colorIntermediate"></app-skill-level-list>
-	<app-skill-level-list [levelName]="strSenior" [levelColor]="colorSenior"></app-skill-level-list>
-	<app-skill-level-list [levelName]="strLead" [levelColor]="colorLead"></app-skill-level-list>
-</div>
+
+	<table>
+		<tr>
+			<td>
+				<app-skill-level-list [levelName]="strJunior" [levelColor]="colorJunior"></app-skill-level-list>
+			</td>
+			<td>
+				<app-skill-level-list [levelName]="strIntermediate" [levelColor]="colorIntermediate"></app-skill-level-list>
+			</td>
+			<td>
+				<app-skill-level-list [levelName]="strSenior" [levelColor]="colorSenior"></app-skill-level-list>
+			</td>
+			<td>
+				<app-skill-level-list [levelName]="strLead" [levelColor]="colorLead"></app-skill-level-list>
+			</td>
+		</tr>
+	</table>
+

@@ -1,10 +1,8 @@
-<div class="col-md-3">
-  <div [ngClass]="color">
-   <div class="panel-heading">{{levelName}}<span class="pull-right"><input type="text" id="txtSearch" placeholder="Search employee"></span></div>
+<div class="panel" id="panel" [style.background-color]="headerColor">
+	<div class="panel-heading">{{levelName}}<span class="pull-right"><input type="text" id="txtSearch" placeholder="Search employee"></span></div>
 
-    <div class="table-container">
-      <table class="table table-filter" >
-      </table>
-    </div>
-  </div>
-</div> 
+	<div class="table-container" [style.background-color]="containerColor">
+		<table class="table table-filter" >
+		</table>
+	</div>
+</div>

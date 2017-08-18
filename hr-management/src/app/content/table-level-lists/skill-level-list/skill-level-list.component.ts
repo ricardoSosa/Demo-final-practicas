@@ -10,7 +10,8 @@ const states = ['AngularJS', 'Angular2', 'Java', 'jQuery', 'Knockout Js', 'Pytho
 export class SkillLevelListComponent implements OnInit {
   @Input() levelName: string;
   @Input() levelColor: string;
-  color: string;
+  headerColor: string;
+  containerColor: string;
 
   constructor() { 
   }
@@ -22,16 +23,20 @@ export class SkillLevelListComponent implements OnInit {
   private setColor() {
     switch(this.levelColor) {
       case 'colorJunior':
-        this.color = 'panel panel-danger';
+        this.headerColor = '#ebccd1';
+        this.containerColor = '#f2dede';
         break;
       case 'colorIntermediate':
-        this.color = 'panel panel-warning';
+        this.headerColor = '#faebcc';
+        this.containerColor = '#fcf8e3';
       break;
         case 'colorSenior':
-        this.color = 'panel panel-success';
+        this.headerColor = '#d6e9c6';
+        this.containerColor = '#dff0d8';
         break;
       case 'colorLead':
-        this.color = 'panel panel-info';
+        this.headerColor = '#bce8f1';
+        this.containerColor = '#d9edf7';
         break;
     }
   }
